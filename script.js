@@ -27,3 +27,26 @@ clearBtn.addEventListener('click', () => {
         inputs.forEach(input => input.value = '');
         errorMessage.textContent = '';
 });
+
+function isValidPlacement(board, row, col, num) {
+        if (num < 1 || num > 9){
+            return false;
+        }
+        // Проверка строки и столбца
+        for (let i = 0; i < 9; i++) {
+            if (board[row][i] === num || board[i][col] === num) {
+                return false;
+            }
+        }
+        // Проверка квадрата 3x3
+        const boxRow = Math.floor(row / 3) * 3;
+        const boxCol = Math.floor(col / 3) * 3;
+        for (let i = boxRow; i < boxRow + 3; i++) {
+            for (let j = boxCol; j < boxCol + 3; j++) {
+                if (board[boxRow + i][boxCol + j] === num) {
+                    return false;
+                }
+            }
+        }
+        return true;
+}
