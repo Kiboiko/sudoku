@@ -11,19 +11,18 @@ body {
 .container {
     text-align: center;
     background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5%;
 }
 
 .sudoku-grid {
     display: grid;
     grid-template-columns: repeat(9, 50px);
     grid-template-rows: repeat(9, 50px);
-    gap: 1px;
+    gap: 3px;
     margin: 20px auto;
     background: #333;
-    border: 2px solid #333;
 }
 
 .sudoku-grid input {
@@ -31,12 +30,28 @@ body {
     height: 100%;
     text-align: center;
     font-size: 20px;
-    border: none;
+    border: 1px solid #ccc;
+    position: relative;
     outline: none;
 }
 
-.sudoku-grid input:nth-child(3n) {
-    margin-right: 2px;
+.rig{
+    border-right: 3px solid #333 !important;
+    position: relative;
+    z-index: 1;
+}
+
+.bot{
+    border-bottom: 3px solid #333 !important;
+    position: relative;
+    z-index: 1;
+}
+
+.bot.rig{
+    border-right: 3px solid #333 !important;
+    border-bottom: 3px solid #333 !important;
+    position: relative;
+    z-index: 2;
 }
 
 .sudoku-grid input:nth-child(9n) {
@@ -66,3 +81,4 @@ button:hover {
     color: red;
     margin-top: 10px;
 }
+
