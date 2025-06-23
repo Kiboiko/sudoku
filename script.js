@@ -164,8 +164,8 @@ clearBtn.addEventListener('click', () => {
 });
 solveBtn.addEventListener('click',()=>{
     solver.loadFromInputs();
-    solver.solve();
     memory = solver._field ;
+    solver.solve();
     console.log(memory.length);
     for (let i = 0;i < 9;i++){
         s = '';
@@ -179,7 +179,6 @@ solveBtn.addEventListener('click',()=>{
 memorybtn.addEventListener('click',()=>{
     solver._field = memory || Array(9).fill().map(() => Array(9).fill(0));
     solver.writeToInputs();
-    console.log('qwert');
 });
 
 
