@@ -48,7 +48,7 @@ body {
     display: grid;
     grid-template-columns: repeat(9, 1fr);
     grid-template-rows: repeat(9, 1fr);
-    gap: 0px;
+    gap: 2px;
     margin: 15px auto;
     background: white;
     width: 100%;
@@ -64,6 +64,11 @@ body {
     position: relative;
     outline: none;
     box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0 !important;
+    background: white;
 }
 
 .rig {
