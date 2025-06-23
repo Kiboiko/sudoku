@@ -50,7 +50,7 @@ body {
     grid-template-rows: repeat(9, 1fr);
     gap: 0px;
     margin: 15px auto;
-    background: #333;
+    background: white;
     width: 100%;
     aspect-ratio: 1/1; /* Квадратная сетка */
 }
