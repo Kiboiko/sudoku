@@ -52,7 +52,7 @@ body {
     margin: 15px auto;
     background: white;
     width: 100%;
-    aspect-ratio: 1/1; /* Квадратная сетка */
+    aspect-ratio: 1/1;
 }
 
 .sudoku-grid input {
