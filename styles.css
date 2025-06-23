@@ -48,7 +48,7 @@ body {
     display: grid;
     grid-template-columns: repeat(9, 1fr);
     grid-template-rows: repeat(9, 1fr);
-    gap: 2px;
+    gap: 0px;
     margin: 15px auto;
     background: white;
     width: 100%;
