@@ -3,6 +3,10 @@ class SudokuSolver {
         this._field = Array(9).fill().map(() => Array(9).fill(0));
     }
 
+    Field(){
+        return this._field;
+    }
+
     loadFromInputs() {
     const inputs = document.querySelectorAll('#sudoku-grid input');
     console.log(inputs.length)
@@ -11,20 +15,23 @@ class SudokuSolver {
     for (let i = 0;i < 81;i++){
         const value = parseInt(inputs[i].value) || 0;
         this._field[row][col] = value;
-        if (row === 8){
-            row = 0;
-            col++;
-        } else {
+        if (col === 8){
+            col = 0;
             row++;
+        } else {
+            col++;
         }
     }
     row = 0;
     col = 0;
+    let s = '';
     for (let i = 0;i < 81;i++){
-        console.log(this._field[row][col])
+        s += inputs[i].value.toString() || 0;
         if (col === 8){
             col = 0;
             row++;
+            console.log(s);
+            s = '';
         } else {
             col++;
         }
@@ -37,13 +44,13 @@ class SudokuSolver {
     let row = 0;
     let col = 0;
     for (let i = 0;i < 81;i++){
-        const value = parseInt(inputs[i].value) || 0;
-        input.value = this._field[row][col] || '';
-        if (row === 8){
-            row = 0;
-            col++;
-        } else {
+        const value = this._field[row][col];
+        inputs[i].value = value !== 0 ? value : '';
+        if (col === 8){
+            col = 0;
             row++;
+        } else {
+            col++;
         }
     }
     }
@@ -126,7 +133,8 @@ const grid = document.getElementById('sudoku-grid');
 const solveBtn = document.getElementById('solve-btn');
 const clearBtn = document.getElementById('clear-btn');
 const errorMessage = document.getElementById('error-message');
-
+const memorybtn = document.getElementById('memory-btn');
+let memory;
 
 for (let i = 0; i < 81; i++) {
         let input = document.createElement('input');
@@ -155,13 +163,25 @@ clearBtn.addEventListener('click', () => {
         errorMessage.textContent = '';
 });
 solveBtn.addEventListener('click',()=>{
-    const inputs = document.querySelectorAll('#sudoku-grid input');
-    
-    // for (let i = 0;i < 81;i++){
-    //     console.log(i,parseInt(inputs[i].value));
-    // }
     solver.loadFromInputs();
+    solver.solve();
+    memory = solver._field ;
+    console.log(memory.length);
+    for (let i = 0;i < 9;i++){
+        s = '';
+        for (let j = 0;j < 9;j++){
+            s += memory[i][j].toString() || ' ';
+        }
+        console.log(s);
+    }
+    solver.writeToInputs();
 });
+memorybtn.addEventListener('click',()=>{
+    solver._field = memory || Array(9).fill().map(() => Array(9).fill(0));
+    solver.writeToInputs();
+    console.log('qwert');
+});
+
 
 
 
