@@ -1,3 +1,10 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --grid-bg: #333;
+  --cell-border: #ccc;
+}
+
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -36,7 +43,8 @@ body {
 
 .container {
     text-align: center;
-    background: white;
+    background: var(--bg-color);
+    color: var(--text-color);
     padding: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
@@ -101,7 +109,6 @@ button {
     color: white;
     border: none;
     border-radius: 5px;
-    width: 100%;
 }
 
 button:hover {
@@ -114,12 +121,26 @@ button:hover {
     font-size: 14px;
 }
 
-@media (max-width: 400px) {
+/* @media (max-width: 400px) {
     .sudoku-grid input {
         font-size: 14px;
     }
     h1 {
         font-size: 24px;
     }
+} */
+ .icon-dark { display: none; }
+[data-theme="dark"] .icon-light { display: none; }
+[data-theme="dark"] .icon-dark { display: inline; }
+
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 100;
 }
 
