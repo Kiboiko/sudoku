@@ -48,11 +48,13 @@ body {
     display: grid;
     grid-template-columns: repeat(9, 1fr);
     grid-template-rows: repeat(9, 1fr);
-    gap: 0px;
+    gap: 0spx;
     margin: 15px auto;
     background: white;
     width: 100%;
     aspect-ratio: 1/1;
+    border-collapse: collapse; /* Убирает двойные границы */
+    border-spacing: 0;
 }
 
 .sudoku-grid input {
@@ -72,16 +74,16 @@ body {
 }
 
 .rig {
-    border-right: 3px solid #333 !important;
+    border-right: 2px solid #333 !important;
 }
 
 .bot {
-    border-bottom: 3px solid #333 !important;
+    border-bottom: 2px solid #333 !important;
 }
 
 .bot.rig {
-    border-right: 3px solid #333 !important;
-    border-bottom: 3px solid #333 !important;
+    border-right: 2px solid #333 !important;
+    border-bottom: 2px solid #333 !important;
 }
 
 .buttons {
