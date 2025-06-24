@@ -130,11 +130,18 @@ class SudokuSolver {
 }
 
 const grid = document.getElementById('sudoku-grid');
-const solveBtn = document.getElementById('solve-btn');
-const clearBtn = document.getElementById('clear-btn');
+const solveBtn = document.getElementById('solve btn');
+const clearBtn = document.getElementById('clear btn');
 const errorMessage = document.getElementById('error-message');
-const memorybtn = document.getElementById('memory-btn');
+const memorybtn = document.getElementById('memory btn');
 let memory;
+const themeToggle = document.getElementById('theme-toggle');
+const htmlTag = document.documentElement;
+
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+  htmlTag.setAttribute('data-theme', savedTheme);
+}
 
 for (let i = 0; i < 81; i++) {
         let input = document.createElement('input');
@@ -181,10 +188,15 @@ memorybtn.addEventListener('click',()=>{
     solver.writeToInputs();
 });
 
-
-
-
-
-// const field = Array(9).fill().map(() => Array(9).fill(0)); // Пустое поле
-// const solver = new SudokuSolver(field);
-// solver.solve();
+themeToggle.addEventListener('click',() => {
+    const currentTheme = htmlTag.getAttribute('data-theme');
+  
+    if (currentTheme === 'dark') {
+        htmlTag.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+    } else {
+        htmlTag.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+    }
+    console.log('change theme');
+})

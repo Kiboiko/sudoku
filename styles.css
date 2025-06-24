@@ -5,6 +5,13 @@
   --cell-border: #ccc;
 }
 
+[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  --text-color: #f0f0f0;
+  --grid-bg: #222;
+  --cell-border: #555;
+}
+
 body {
     font-family: Arial, sans-serif;
     display: flex;
