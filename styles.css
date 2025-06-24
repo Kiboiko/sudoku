@@ -3,13 +3,15 @@
   --text-color: #333333;
   --grid-bg: #333;
   --cell-border: #ccc;
+  --btn-color: #4CAF50;
 }
 
 [data-theme="dark"] {
-  --bg-color: #1a1a1a;
+  --bg-color: #3B3A3D;
   --text-color: #f0f0f0;
   --grid-bg: #222;
   --cell-border: #555;
+  --btn-color: #7AA899;
 }
 
 body {
@@ -112,7 +114,7 @@ button {
     padding: 10px;
     font-size: 16px;
     cursor: pointer;
-    background: #4CAF50;
+    background: var(--btn-color);
     color: white;
     border: none;
     border-radius: 5px;
@@ -121,6 +123,9 @@ button {
 button:hover {
     background: #45a049;
 }
+#theme-toggle:hover {
+    background: none;
+}
 
 .error {
     color: red;
@@ -128,14 +133,6 @@ button:hover {
     font-size: 14px;
 }
 
-/* @media (max-width: 400px) {
-    .sudoku-grid input {
-        font-size: 14px;
-    }
-    h1 {
-        font-size: 24px;
-    }
-} */
  .icon-dark { display: none; }
 [data-theme="dark"] .icon-light { display: none; }
 [data-theme="dark"] .icon-dark { display: inline; }
