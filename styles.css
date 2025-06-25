@@ -8,6 +8,7 @@
   --btn-hover-color: #45a049;
   --start-gradient-color:#556B2F;
   --end-gradient-color:#C1D8AC;
+  --transition-time: 0.4s;
 }
 /* --start-gradient-color:#a8d7e0;
   --end-gradient-color:#213b40; */
@@ -39,6 +40,16 @@ body {
     -o-animation:ServiceAnimation 5s ease infinite;
     animation:ServiceAnimation 5s ease infinite;
 }
+
+body,
+.sudoku-grid input,
+.container {
+  transition: 
+    background-color var(--transition-time) ease,
+    color var(--transition-time) ease,
+    border-color var(--transition-time) ease;
+}
+
 @-webkit-keyframes ServiceAnimation{0%
   {background-position:90% 0}50%
   {background-position:10% 100%}100%
@@ -78,6 +89,7 @@ body {
     gap: 0spx;
     margin: 15px auto;
     background: var(--grid-bg);
+    transition: background var(--transition-time) ease;
     width: 100%;
     aspect-ratio: 1/1;
     border-collapse: collapse; /* Убирает двойные границы */
@@ -120,7 +132,7 @@ body {
     gap: 10px;
 }
 
-button {
+button:not(.theme-toggle) {
     padding: 10px;
     font-size: 16px;
     cursor: pointer;
@@ -128,14 +140,17 @@ button {
     color: white;
     border: none;
     border-radius: 5px;
+    transition: 
+        background var(--transition-time) ease,
+        transform 0.2s ease;
 }
 
-button:hover {
+button:not(.theme-toggle):hover {
     background: var(--btn-hover-color);
 }
-#theme-toggle:hover {
+/* #theme-toggle:hover {
     background: none;
-}
+} */
 
 .error {
     color: red;
